@@ -1,0 +1,11 @@
+li{
+	display:inline;
+}
+.wrapper{
+	width: 90%;
+	margin: auto;
+}
+.container{
+	width: 800px;
+	margin: auto;
+}
