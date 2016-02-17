@@ -1,15 +1,17 @@
 //Possible words to guess
 var words = ['jason', 'kaitlyn', 'lora', 'matthew'];
 
-//Computer picks random word to guess
-function getItem() {
+//Computer runs the game Hangman and picks random word to guess
+function hangMan() {
 
-	//Used to display actual random word without blank spaces
+	//Chooses random words and displays without blank spaces
 	document.getElementById("wordGuess").innerHTML = words[Math.floor(Math.random() * words.length)];
 
-	//Displays possible words with blank spaces
+
+	//Chooses random words and displays with blank spaces
 	var possibleWord = words[Math.floor(Math.random() * words.length)];
 	document.getElementById("blankSpaces").innerHTML = possibleWord;
+
 
 	//Space out possibleWord
 	var originalLength = possibleWord.length;
@@ -32,32 +34,32 @@ function getItem() {
 	  }
 	}
 	document.getElementById("blankSpaces").innerHTML = blankSpaces;
-}
 
-//This code captures the keypress and prints it out on the screen
-var guessesLeft = 9;
 
-document.onkeypress = function(keyPressed) {
-    var keyPressed = keyPressed || window.event,
-	    charCode = keyPressed.keyCode || keyPressed.which,
-	    lettersGuessed = String.fromCharCode(charCode);
-	
-	// var userGuess = prompt("What word do you guess?");
-	// var userGuess = words.split('');
-	// var userGuess
-	// if (words.indexOf(userGuess) > -1) {
-	// 	alert("Your guess is correct.")
-	// }else {
-	// 	alert("Your guess is wrong.")
-	// }
+	//This code captures the keypress and prints it out on the screen it also counts down the keypresses
+	var guessesLeft = 9;
 
-	document.getElementById("lettersGuessed").innerHTML += lettersGuessed;
-	document.getElementById("guessesLeft").innerHTML = guessesLeft;
+	document.onkeypress = function(keyPressed) {
+	    var keyPressed = keyPressed || window.event,
+		    charCode = keyPressed.keyCode || keyPressed.which,
+		    lettersGuessed = String.fromCharCode(charCode);
 
-	guessesLeft--;
+		document.getElementById("lettersGuessed").innerHTML += lettersGuessed;
+		document.getElementById("guessesLeft").innerHTML = guessesLeft;
 
-	if (guessesLeft === -1) {
-		alert("You Loose!");
+		guessesLeft--;
+
+		if (guessesLeft === -1) {
+			alert("You Loose!");
+		}
+
+
+		//This detects if there is a match between lettersGuessed and blankSpaces
+		if(lettersGuessed.indexOf(lettersGuessed) === blankSpaces){
+			alert("Your guess is correct.")
+		}else {
+			//alert("Your guess is wrong.")
+		}
 	}
 }
 
