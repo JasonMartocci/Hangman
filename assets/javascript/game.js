@@ -74,24 +74,24 @@ function hangMan() {
 
 
 
-//Removes the letter after it is clicked or selected
-function removeLetter(i) {
-	document.getElementById(i).innerHTML= "_";
-	document.getElementById("guessesLeft").innerHTML = + guessesLeft;
-	guessesLeft --;
+// //Removes the letter after it is clicked or selected
+// function removeLetter(i) {
+// 	document.getElementById(i).innerHTML= "_";
+// 	document.getElementById("guessesLeft").innerHTML = + guessesLeft;
+// 	guessesLeft --;
 
-	if (guessesLeft === -1) {
-		alert("You Loose!");
-	}
-}
+// 	if (guessesLeft === -1) {
+// 		alert("You Loose!");
+// 	}
+// }
 
-//Replaces the letter with blank after it is clicked or selected
-function replaceLetter(x) {
-	for (i=0; i<words.length; i++) {
-		var ul = document.getElementById("wordGuess"),
-			liArray = ul.getElementsByTagName("li");
-		if (words[i] == x ) {
-			liArray[i].innerHTML = x;
-		 }
-	}
-}
+// //Replaces the letter with blank after it is clicked or selected
+// function replaceLetter(x) {
+// 	for (i=0; i<words.length; i++) {
+// 		var ul = document.getElementById("wordGuess"),
+// 			liArray = ul.getElementsByTagName("li");
+// 		if (words[i] == x ) {
+// 			liArray[i].innerHTML = x;
+// 		 }
+// 	}
+// }
