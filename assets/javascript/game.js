@@ -1,18 +1,48 @@
-//Possible words to guess
-var words = ['jason', 'kaitlyn', 'lora', 'matthew'];
-
 //Computer picks random word to guess
 function getItem() {
+	//Possible words to guess
+	var words = ['jason', 'kaitlyn', 'lora', 'matthew'];
 	document.getElementById("wordGuess").innerHTML = words[Math.floor(Math.random() * words.length)];
 
-//Displays possible words blank spaces
+
+
+
+	// Answer given from StackOverflow to fix array to print out as dashes
+	
+	// var progressWord = []
+	// for (var i = 0; i < wordLength; i ++)
+	//   progressWord.push('-');
+
+	// if (chosenWord.indexOf(keyString) != -1){ // if the character is found
+	//   for (var i = 0; i < wordLength; i ++){ // loop on all characters
+	//      if (chosenWord[i] == keyString) // if this is an occurance
+	//        progressWord[i] = chosenWord[i];
+	//   }
+	// }else{
+	//   // wrong choice
+	// }
+
+	// if (progressWord.indexOf('-') == -1 ){ // if there are no dashes left
+	//   //win!
+	// }else if (guessesLeft <= 0){
+	//   //player has lost
+	// }
+
+	// progressWord.join(" "); // will form a string from the array, with a space as as delimeter
+
+
+
+
+
+
+	//Displays possible words blank spaces
 	var possibleWord = "J A S O N";
 	var blankSpaces = "";
 	var	wordLength = possibleWord.length;
 	
 	for (i = 0; i < wordLength; i++) {
 	  var x = possibleWord.charAt(i);
-	  // alert(x);
+	  
 	  if(x === " " || x === "/'")
 	  {
 	  	blankSpaces += x;
@@ -49,7 +79,7 @@ document.onkeypress = function(keyPressed) {
 	if (guessesLeft === -1) {
 		alert("You Loose!");
 	}
-};
+}
 
 
 
