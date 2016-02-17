@@ -1,11 +1,27 @@
 //Possible words to guess
 var words = ['jason', 'kaitlyn', 'lora', 'matthew'];
 
-
-
 //Computer picks random word to guess
 function getItem() {
 	document.getElementById("wordGuess").innerHTML = words[Math.floor(Math.random() * words.length)];
+
+//Displays possible words blank spaces
+	var possibleWord = "J A S O N";
+	var blankSpaces = "";
+	var	wordLength = possibleWord.length;
+	
+	for (i = 0; i < wordLength; i++) {
+	  var x = possibleWord.charAt(i);
+	  // alert(x);
+	  if(x === " " || x === "/'")
+	  {
+	  	blankSpaces += x;
+	  }
+	  else {
+	    blankSpaces += "_";
+	  }
+	}
+	document.getElementById("blankSpaces").innerHTML = blankSpaces;
 }
 
 //This code captures the keypress and prints it out on the screen
