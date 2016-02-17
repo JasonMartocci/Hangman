@@ -1,9 +1,8 @@
-
+//Possible words to guess
 var words = ['jason', 'kaitlyn', 'lora', 'matthew'];
 
 //Computer picks random word to guess
 function getItem() {
-	//Possible words to guess
 
 	//Used to display actual random word without blank spaces
 	document.getElementById("wordGuess").innerHTML = words[Math.floor(Math.random() * words.length)];
