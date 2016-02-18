@@ -63,7 +63,7 @@ function hangMan() {
 	        	correctString = correctString + lettersGuessed + " ";
 	        	console.log(correctString);
 	        	document.getElementById("blankSpaces").innerHTML = correctString;
-	        }
+	        } 
 	    }
 	}
 }
