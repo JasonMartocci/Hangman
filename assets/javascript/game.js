@@ -1,5 +1,5 @@
 //Possible words to guess
-var words = ['jason', 'kaitlyn', 'lora', 'matthew'];
+var words = ['jason'];
 
 //Computer runs the game Hangman and picks random word to guess
 function hangMan() {
@@ -15,14 +15,14 @@ function hangMan() {
 
 	//Space out possibleWord
 	var originalLength = possibleWord.length;
-	for (i = 0; i < originalLength; i++) {
+	for (var i = 0; i < originalLength; i++) {
 	    possibleWord = [possibleWord.slice(0, i*2+1), ' ', possibleWord.slice(i*2+1)].join('');
 	}
 
 	var blankSpaces = "";
 	var	wordLength = possibleWord.length;
 	
-	for (i = 0; i < wordLength; i++) {
+	for (var i = 0; i < wordLength; i++) {
 	  var x = possibleWord.charAt(i);
 	  
 	  if(x === " " || x === "/'")
@@ -38,7 +38,7 @@ function hangMan() {
 
 	//This code captures the keypress and prints it out on the screen it also counts down the keypresses
 	var guessesLeft = 9;
-
+	var correctString = "";
 	document.onkeypress = function(keyPressed) {
 	    var keyPressed = keyPressed || window.event,
 		    charCode = keyPressed.keyCode || keyPressed.which,
@@ -50,19 +50,23 @@ function hangMan() {
 		guessesLeft--;
 
 		if (guessesLeft === -1) {
-			alert("You Loose!");
+			alert("You Lose!");
 		}
 
-
+		console.log(possibleWord);
+			
 		//This detects if there is a match between lettersGuessed and blankSpaces
-		if(lettersGuessed.indexOf(lettersGuessed) === blankSpaces){
-			alert("Your guess is correct.")
-		}else {
-			//alert("Your guess is wrong.")
-		}
+		  for(var g = 0; g < possibleWord.length; g++){
+        	//alert(lettersGuessed[g]);
+			if (possibleWord[g] === lettersGuessed) {
+	        	alert("You picked a correct letter");
+	        	correctString = correctString + lettersGuessed + " ";
+	        	console.log(correctString);
+	        	document.getElementById("blankSpaces").innerHTML = correctString;
+	        }
+	    }
 	}
 }
-
 
 
 
@@ -81,7 +85,7 @@ function hangMan() {
 // 	guessesLeft --;
 
 // 	if (guessesLeft === -1) {
-// 		alert("You Loose!");
+// 		alert("You Lose!");
 // 	}
 // }
 
