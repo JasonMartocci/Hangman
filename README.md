@@ -1,1 +1,1 @@
-The game of Hangman created in JavaScript
+The game of Hangman created in JavaScript.
