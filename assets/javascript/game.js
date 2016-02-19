@@ -1,80 +1,83 @@
-//Possible words to guess
-var words = ['jason'];
+//All of variables.
+var wordList = ["jason"];  
+var word;
+var guess;
+var guessesLeft = 9;
+var placeholder;
+var correct;
+var wordLength;
+var wordSubstring;
+var wins = 0;
 
-//Computer runs the game Hangman and picks random word to guess
-function hangMan() {
-
-	//Chooses random words and displays without blank spaces
-	document.getElementById("wordGuess").innerHTML = words[Math.floor(Math.random() * words.length)];
-
-
-	//Chooses random words and displays with blank spaces
-	var possibleWord = words[Math.floor(Math.random() * words.length)];
-	document.getElementById("blankSpaces").innerHTML = possibleWord;
-
-
-	//Space out possibleWord
-	var originalLength = possibleWord.length;
-	for (var i = 0; i < originalLength; i++) {
-	    possibleWord = [possibleWord.slice(0, i*2+1), ' ', possibleWord.slice(i*2+1)].join('');
-	}
-
-	var blankSpaces = "";
-	var	wordLength = possibleWord.length;
+// Function to start a new game and split the word.
+function newGame() {
+	placeholder = "";
+	lives = 5;
+	word = wordList[Math.floor(Math.random() * wordList.length)];
+	splitWord = word.split("");
+	currentWord = 0;
 	
-	for (var i = 0; i < wordLength; i++) {
-	  var x = possibleWord.charAt(i);
-	  
-	  if(x === " " || x === "/'")
-	  {
-	  	blankSpaces += x;
-	  }
-	  else {
-	    blankSpaces += "_";
-	  }
+	// word = wordList[currentWord];
+	wordLength = word.length;
+	wordSubstring = word.substring;
+	
+	//Adding underscores for every character in the phrase.
+	for (var i = 0; i<splitWord.length; i++) {
+		placeholder = placeholder + "_";
 	}
-	document.getElementById("blankSpaces").innerHTML = blankSpaces;
+
+	document.getElementById("placeholder").innerHTML = placeholder;
+	document.getElementById("gameStatus").innerHTML = "Push any key to begin.";
+}
 
 
-	//This code captures the keypress and prints it out on the screen it also counts down the keypresses
-	var guessesLeft = 9;
-	var correctString = "";
-	document.onkeypress = function(keyPressed) {
-	    var keyPressed = keyPressed || window.event,
-		    charCode = keyPressed.keyCode || keyPressed.which,
-		    lettersGuessed = String.fromCharCode(charCode);
+// Function to transfer keypress to userguess.
+	document.onkeypress = function(event) {
+	var guess;
+	var correct = 0;
+	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+	console.log(word);
+
+	var keyPressed = keyPressed || window.event,
+	    charCode = keyPressed.keyCode || keyPressed.which,
+	    lettersGuessed = String.fromCharCode(charCode);
 
 		document.getElementById("lettersGuessed").innerHTML += lettersGuessed;
 		document.getElementById("guessesLeft").innerHTML = guessesLeft;
 
-		guessesLeft--;
+		//guessesLeft--;
 
 		if (guessesLeft === -1) {
 			alert("You Lose!");
+			newGame();
 		}
 
-		console.log(possibleWord);
-			
-		//This detects if there is a match between lettersGuessed and blankSpaces
-		  for(var g = 0; g < possibleWord.length; g++){
-        	//alert(lettersGuessed[g]);
-			if (possibleWord[g] === lettersGuessed) {
-	        	alert("You picked a correct letter");
-	        	correctString = correctString + lettersGuessed + " ";
-	        	console.log(correctString);
-	        	document.getElementById("blankSpaces").innerHTML = correctString;
-	        } 
-	    }
+	for (var i = 0;i<splitWord.length;i++) {
+	//If correct.
+	if (userGuess == word.substring(i, i + 1)) {
+		correct++;
+		placeholder = placeholder.substring(0, i) + userGuess + placeholder.substring(i +1, placeholder.length +1);
+		document.getElementById("placeholder").innerHTML = placeholder;
 	}
+	}
+		if (correct == 0)
+	{
+	  	guessesLeft--;
+	}
+		if (placeholder.indexOf("_") == -1)
+	{
+		wins++;
+		var html = "Wins: " + wins;
+		document.querySelector("#wins").innerHTML = html;
+		newGame();
+	}
+
+  //If you run out of guessesLeft, the game restarts.
+  if (guessesLeft == 0)
+    {
+      newGame();
+    }
 }
-
-
-
-
-
-
-
-
 
 
 
