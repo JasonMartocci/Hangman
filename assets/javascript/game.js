@@ -1,7 +1,7 @@
 //variables.
 var wordList = ["jason", "lora"];  
 var word;
-var lettersGuessed="";
+var lettersGuessed = "";
 var guessesLeft;
 var placeholder;
 var correct;
@@ -64,7 +64,7 @@ document.onkeypress = function(event) {
 	if (placeholder.indexOf("_") == -1) {
 		alert("You Win!");
 		wins++;
-		var userWins = "Wins: " + wins;
+		var userWins = wins;
 		document.querySelector("#wins").innerHTML = userWins;
 		newGame();
 	}
@@ -72,7 +72,7 @@ document.onkeypress = function(event) {
 	if (guessesLeft === -1) {
 		alert("You Lose!");
 		losses++;
-		var userLoses = "Losses: " + losses;
+		var userLoses = losses;
 		document.querySelector("#losses").innerHTML = userLoses;
 		newGame();
 	}

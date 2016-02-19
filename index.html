@@ -4,28 +4,45 @@
 	<title>Hangman</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/fonts/font.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">  
 	<script type="text/javascript" src="assets/javascript/game.js"></script>
-	<link href='https://fonts.googleapis.com/css?family=Sigmar+One' rel='stylesheet' type='text/css'>
-  
 </head>
 <body onload="newGame()">
 
 <div class="wrapper">
+	<div class="header">
+		<div class="logo"><img src="assets/images/minecraft_logo.png" alt="Minecraft Logo"><br><h1>Welcome to Minecraft Hangman!</h1></div>
+	</div>
 	<div class="container">
-		<div style="text-align: center;">
-		   <h1>
-		   Welcome to Minecraft Hangman!
-		   </h1>
-		   <div id="placeholder"></div>
-		   <div id="gameStatus"></div>
-		   <div id="lives"></div>
-		   <div id="wins"></div>
-		   <div id="losses"></div>
-		   <div id="userGuess"></div>
+		<div class="wordguess">
+			<div id="placeholder"></div>
 		</div>
-			Number of Guesses Remaining: <span id="guessesLeft"></span><br><br>
+	</div>
+	<div class="blanksign">
+		<div class="results_wins">
+		   Wins: <span id="wins"></span>
+		</div>
+		<div class="results_losses">
+		   Losses: <span id="losses"></span>
+		</div>
+		<div id="gameStatus"></div>
+	</div>
+	<div class="blanksign">
+		<div class="guesses_left">
+		   Guesses Remaining: <span id="guessesLeft"></span>
+		</div>
+		<div class="letters_guessed">
+		   Letters Already Guessed:<br><div id="lettersGuessed"></div>
+		</div>
+	</div>
+	<div>
+		   
+		   <div id="lives"></div>
+		   <div id="userGuess"></div>
+			<br><br>
 
-			Letters Already Guessed: <span id="lettersGuessed"></span><br><br>
+			<br><br>
 
 <!-- 		<ul id="alphabet">
 			<li id="a" onclick="removeLetter('a'); replaceLetter('a')">a</li>
