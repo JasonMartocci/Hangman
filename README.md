@@ -1,1 +1,1 @@
-The game of Hangman created in JavaScript.
+This is a game of Minecraft Hangman done for Rutgers Coding Bootcamp.
