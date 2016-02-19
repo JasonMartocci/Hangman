@@ -68,6 +68,9 @@ document.onkeypress = function(event) {
 		wins++;
 		var userWins = wins;
 		document.querySelector("#wins").innerHTML = userWins;
+
+		var correctGuess = " ";
+		document.querySelector("#lettersGuessed").innerHTML = correctGuess;
 		newGame();
 	}
 	
@@ -75,8 +78,9 @@ document.onkeypress = function(event) {
 		//alert("You Lose!");
 		losses++;
 		var userLoses = losses;
-		document.querySelector("#losses").innerHTML = userLoses;		
-		var missedGuess = word;
+		document.querySelector("#losses").innerHTML = userLoses;
+
+		var missedGuess = " ";
 		document.querySelector("#lettersGuessed").innerHTML = missedGuess;
 		alert("The word was " + word);
 		newGame();

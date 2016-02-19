@@ -78,8 +78,8 @@ li{
 }
 #lettersGuessed{
   position: relative;
-  margin-top: 20px;
-  font-size: 30px;
+  margin-top: 44px;
+  font-size: 18px;
 }
 #gameStatus{
   position: relative;
