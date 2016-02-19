@@ -10,52 +10,51 @@
 </head>
 <body onload="newGame()">
 
-<div style="text-align: center;">
-   <h1>
-   Welcome to Minecraft Hangman!
-   </h1>
-   <div id="placeholder"></div><br>
-   <div id="gameStatus"></div>
-   <div id="lives"></div><br>
-   <div id="wins"></div>
-   <div id="userGuess"></div>
-</div>
-
 <div class="wrapper">
 	<div class="container">
-
-			Number of Guesses Remaining: <span id="guessesLeft">10</span><br><br>
+		<div style="text-align: center;">
+		   <h1>
+		   Welcome to Minecraft Hangman!
+		   </h1>
+		   <div id="placeholder"></div>
+		   <div id="gameStatus"></div>
+		   <div id="lives"></div>
+		   <div id="wins"></div>
+		   <div id="losses"></div>
+		   <div id="userGuess"></div>
+		</div>
+			Number of Guesses Remaining: <span id="guessesLeft"></span><br><br>
 
 			Letters Already Guessed: <span id="lettersGuessed"></span><br><br>
 
-<!-- 			<ul id="alphabet">
-				<li id="a" onclick="removeLetter('a'); replaceLetter('a')">a</li>
-				<li id="b" onclick="removeLetter('b'); replaceLetter('b')">b</li>
-				<li id="c" onclick="removeLetter('c'); replaceLetter('c')">c</li>
-				<li id="d" onclick="removeLetter('d'); replaceLetter('d')">d</li>
-				<li id="e" onclick="removeLetter('e'); replaceLetter('e')">e</li>
-				<li id="f" onclick="removeLetter('f'); replaceLetter('f')">f</li>
-				<li id="g" onclick="removeLetter('g'); replaceLetter('g')">g</li>
-				<li id="h" onclick="removeLetter('h'); replaceLetter('h')">h</li>
-				<li id="i" onclick="removeLetter('i'); replaceLetter('i')">i</li>
-				<li id="j" onclick="removeLetter('j'); replaceLetter('j')">j</li>
-				<li id="k" onclick="removeLetter('k'); replaceLetter('k')">k</li>
-				<li id="l" onclick="removeLetter('l'); replaceLetter('l')">l</li>
-				<li id="m" onclick="removeLetter('m'); replaceLetter('m')">m</li>
-				<li id="n" onclick="removeLetter('n'); replaceLetter('n')">n</li>
-				<li id="o" onclick="removeLetter('o'); replaceLetter('o')">o</li>
-				<li id="p" onclick="removeLetter('p'); replaceLetter('p')">p</li>
-				<li id="q" onclick="removeLetter('q'); replaceLetter('q')">q</li>
-				<li id="r" onclick="removeLetter('r'); replaceLetter('r')">r</li>
-				<li id="s" onclick="removeLetter('s'); replaceLetter('s')">s</li>
-				<li id="t" onclick="removeLetter('t'); replaceLetter('t')">t</li>
-				<li id="u" onclick="removeLetter('u'); replaceLetter('u')">u</li>
-				<li id="v" onclick="removeLetter('v'); replaceLetter('v')">v</li>
-				<li id="w" onclick="removeLetter('w'); replaceLetter('w')">w</li>
-				<li id="x" onclick="removeLetter('x'); replaceLetter('x')">x</li>
-				<li id="y" onclick="removeLetter('y'); replaceLetter('y')">y</li>
-				<li id="z" onclick="removeLetter('z'); replaceLetter('z')">z</li>
-			</ul> -->
+<!-- 		<ul id="alphabet">
+			<li id="a" onclick="removeLetter('a'); replaceLetter('a')">a</li>
+			<li id="b" onclick="removeLetter('b'); replaceLetter('b')">b</li>
+			<li id="c" onclick="removeLetter('c'); replaceLetter('c')">c</li>
+			<li id="d" onclick="removeLetter('d'); replaceLetter('d')">d</li>
+			<li id="e" onclick="removeLetter('e'); replaceLetter('e')">e</li>
+			<li id="f" onclick="removeLetter('f'); replaceLetter('f')">f</li>
+			<li id="g" onclick="removeLetter('g'); replaceLetter('g')">g</li>
+			<li id="h" onclick="removeLetter('h'); replaceLetter('h')">h</li>
+			<li id="i" onclick="removeLetter('i'); replaceLetter('i')">i</li>
+			<li id="j" onclick="removeLetter('j'); replaceLetter('j')">j</li>
+			<li id="k" onclick="removeLetter('k'); replaceLetter('k')">k</li>
+			<li id="l" onclick="removeLetter('l'); replaceLetter('l')">l</li>
+			<li id="m" onclick="removeLetter('m'); replaceLetter('m')">m</li>
+			<li id="n" onclick="removeLetter('n'); replaceLetter('n')">n</li>
+			<li id="o" onclick="removeLetter('o'); replaceLetter('o')">o</li>
+			<li id="p" onclick="removeLetter('p'); replaceLetter('p')">p</li>
+			<li id="q" onclick="removeLetter('q'); replaceLetter('q')">q</li>
+			<li id="r" onclick="removeLetter('r'); replaceLetter('r')">r</li>
+			<li id="s" onclick="removeLetter('s'); replaceLetter('s')">s</li>
+			<li id="t" onclick="removeLetter('t'); replaceLetter('t')">t</li>
+			<li id="u" onclick="removeLetter('u'); replaceLetter('u')">u</li>
+			<li id="v" onclick="removeLetter('v'); replaceLetter('v')">v</li>
+			<li id="w" onclick="removeLetter('w'); replaceLetter('w')">w</li>
+			<li id="x" onclick="removeLetter('x'); replaceLetter('x')">x</li>
+			<li id="y" onclick="removeLetter('y'); replaceLetter('y')">y</li>
+			<li id="z" onclick="removeLetter('z'); replaceLetter('z')">z</li>
+		</ul> -->
 	</div>
 </div>
 </body>

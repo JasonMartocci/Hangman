@@ -18,6 +18,9 @@ li{
   #wins {
     font-size: 40px;
   }
+  #losses {
+    font-size: 40px;
+  }
   h1 {
     color: blue;
     font-size: 40px;

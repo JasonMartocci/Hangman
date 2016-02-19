@@ -1,18 +1,21 @@
-//All of variables.
-var wordList = ["jason"];  
+//variables.
+var wordList = ["jason", "lora"];  
 var word;
-var guess;
-var guessesLeft = 9;
+var lettersGuessed="";
+var guessesLeft;
 var placeholder;
 var correct;
 var wordLength;
 var wordSubstring;
 var wins = 0;
+var losses = 0;
 
 // Function to start a new game and split the word.
 function newGame() {
 	placeholder = "";
-	lives = 5;
+	guessesLeft = 10;
+	lettersGuessed = "";
+
 	word = wordList[Math.floor(Math.random() * wordList.length)];
 	splitWord = word.split("");
 	currentWord = 0;
@@ -32,51 +35,47 @@ function newGame() {
 
 
 // Function to transfer keypress to userguess.
-	document.onkeypress = function(event) {
-	var guess;
+document.onkeypress = function(event) {
 	var correct = 0;
 	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+
 	console.log(word);
 
 	var keyPressed = keyPressed || window.event,
 	    charCode = keyPressed.keyCode || keyPressed.which,
 	    lettersGuessed = String.fromCharCode(charCode);
 
-		document.getElementById("lettersGuessed").innerHTML += lettersGuessed;
+	    document.getElementById("lettersGuessed").innerHTML += lettersGuessed;
 		document.getElementById("guessesLeft").innerHTML = guessesLeft;
 
-		//guessesLeft--;
-
-		if (guessesLeft === -1) {
-			alert("You Lose!");
-			newGame();
-		}
-
 	for (var i = 0;i<splitWord.length;i++) {
-	//If correct.
-	if (userGuess == word.substring(i, i + 1)) {
-		correct++;
-		placeholder = placeholder.substring(0, i) + userGuess + placeholder.substring(i +1, placeholder.length +1);
-		document.getElementById("placeholder").innerHTML = placeholder;
+		//If correct.
+		if (userGuess == word.substring(i, i + 1)) {
+			correct++;
+			placeholder = placeholder.substring(0, i) + userGuess + placeholder.substring(i +1, placeholder.length +1);
+			document.getElementById("placeholder").innerHTML = placeholder;
+		}
 	}
-	}
-		if (correct == 0)
-	{
+	
+	if (correct === 0) {
 	  	guessesLeft--;
 	}
-		if (placeholder.indexOf("_") == -1)
-	{
+
+	if (placeholder.indexOf("_") == -1) {
+		alert("You Win!");
 		wins++;
-		var html = "Wins: " + wins;
-		document.querySelector("#wins").innerHTML = html;
+		var userWins = "Wins: " + wins;
+		document.querySelector("#wins").innerHTML = userWins;
 		newGame();
 	}
-
-  //If you run out of guessesLeft, the game restarts.
-  if (guessesLeft == 0)
-    {
-      newGame();
-    }
+	
+	if (guessesLeft === -1) {
+		alert("You Lose!");
+		losses++;
+		var userLoses = "Losses: " + losses;
+		document.querySelector("#losses").innerHTML = userLoses;
+		newGame();
+	}
 }
 
 
