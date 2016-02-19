@@ -1,5 +1,5 @@
 //variables.
-var wordList = ["jason", "lora"];  
+var wordList = ["blaze", "cavespider", "creeper", "enderdragon", "enderman", "ghast", "irongolem", "silverfish", "steve", "skeleton", "slime", "minecraft", "spider", "witch", "wither", "witherskeleton", "wolf", "zombie", "zombiepigman"];  
 var word;
 var lettersGuessed = "";
 var guessesLeft;
@@ -9,13 +9,15 @@ var wordLength;
 var wordSubstring;
 var wins = 0;
 var losses = 0;
+var audio = new Audio('assets/music/Minecraft-Background_Music_1.mp3');
+
 
 // Function to start a new game and split the word.
 function newGame() {
 	placeholder = "";
 	guessesLeft = 10;
 	lettersGuessed = "";
-
+	audio.play();
 	word = wordList[Math.floor(Math.random() * wordList.length)];
 	splitWord = word.split("");
 	currentWord = 0;
@@ -62,7 +64,7 @@ document.onkeypress = function(event) {
 	}
 
 	if (placeholder.indexOf("_") == -1) {
-		alert("You Win!");
+		//alert("You Win!");
 		wins++;
 		var userWins = wins;
 		document.querySelector("#wins").innerHTML = userWins;
@@ -70,10 +72,13 @@ document.onkeypress = function(event) {
 	}
 	
 	if (guessesLeft === -1) {
-		alert("You Lose!");
+		//alert("You Lose!");
 		losses++;
 		var userLoses = losses;
-		document.querySelector("#losses").innerHTML = userLoses;
+		document.querySelector("#losses").innerHTML = userLoses;		
+		var missedGuess = word;
+		document.querySelector("#lettersGuessed").innerHTML = missedGuess;
+		alert("The word was " + word);
 		newGame();
 	}
 }
